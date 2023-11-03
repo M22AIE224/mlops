@@ -1,0 +1,4 @@
+Current State SKU BAsed Capax Order - Fixed percentage split
+Future State Offer based where the aplit is SKU based Fixed percentage
+
+Future state Offer based where the split is rate card based percentage

@@ -1,0 +1,50 @@
+Original :
+Quantity = 1 , Duration = 12 Months , Total Contract Value = 1200, Unit price per month = 100
+Activation Date = 1-Jan-2023
+
+Original Arrangement
+Qty - 1
+Amount - 1200 
+Duration - 12
+Start Date - 1-Jan-2023 
+End Date - 31-Dec-2023
+
+After 3 months
+
+Expansion :
+Quantity = 2, Duration = 9 Months, Total Contract Value= 1800, Unit price per month = 100
+
+New Arrangement : 
+Contract Amount - 2700
+Quantity - 3
+Duration: 9 months
+
+##### remainingContractDuration: 9
+remainingContractAmount: 900,
+remainingQuantity = 1
+
+Line 1 - 1800    / 
+Line 2 - 900
+
+Original Arrangement
+Qty - 1
+Amount - 1200 ---> 300 
+Duration - 12 ---> 3
+Start Date - 1-Jan-2023 
+End Date - 31-Dec-2023 -----> 31-Mar-2023
+
+
+VT Needs :
+VT Amount - 1800 (Expansion Amount - remainingContractAmount_Original)
+VT 2 - 2 (Expansion Quantity - Original Quantity)
+
+
+Expansion Arrg
+Qty - 3
+Amount - 2700
+Duration - 9
+Change Qty - 2 (Expansion Qty - Original Qty)
+Change Amount - 1800 (Expansion Amount - Remaining Amount)
+
+
+
