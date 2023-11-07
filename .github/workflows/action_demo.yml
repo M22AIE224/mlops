@@ -23,4 +23,8 @@ jobs:
       - name: Run Pytest
         run: pytest
       - name: Run experiment
+<<<<<<< HEAD
         run: python exp.py
+=======
+        run: python exp.py
+>>>>>>> origin/feature/docker_assignment
