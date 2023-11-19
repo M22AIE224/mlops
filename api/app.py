@@ -1,5 +1,9 @@
-from flask import Flask, request, json
+from flask import Flask, request, json, jsonify
 from joblib import load
+from PIL import Image
+from io import BytesIO
+import numpy as np
+
 
 headers = {"Content-Type": "application/json; charset=utf-8"}
 
@@ -7,8 +11,7 @@ app = Flask(__name__)
 
 
 @app.route("/")
-def hello_world():
-    
+def hello_world():    
 
     print(request.headers)
 
@@ -52,7 +55,7 @@ def test_post():
     return "Done Loading"
 
 @app.route("/predict", methods=['POST'])
-def predict_digit():
+def predict_image():
     image1 = request.json['image1']
     #image2 = request.json['image2']
     print("done loading")
@@ -69,6 +72,26 @@ def predict_digit():
     # return result
     #return "prediction"
     return {"y_predicted":int(predicted1[0])}
+
+@app.route('/predict_digit', methods=['POST'])
+def predict_digit():
+    if 'image' not in request.files:
+        return jsonify(error='Please provide an image.'), 400
+
+    image_bytes = request.files['image'].read()
+    image = Image.open(BytesIO(image_bytes)).convert('L')
+    image = image.resize((8, 8), Image.LANCZOS)
+    
+    image_arr = np.array(image).reshape(1, -1)
+    
+    model_path = "./models/model.joblib"
+    model = load(model_path)
+    #model = joblib.load('model.joblib')
+
+    pred = model.predict(image_arr)
+
+    return jsonify(predicted_digit=int(pred[0]))
+
 
 @app.route('/string_example', methods=['POST'])
 def handle_non_json():
