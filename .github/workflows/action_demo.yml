@@ -23,7 +23,7 @@ jobs:
       - name: Run Pytest
         run: |
           cd api
-          pytest -s testcase.py
+          pytest -s api/testcase.py
       #   name: Run Pytest
       # - run: pytest 
       # - name: Run experiment
