@@ -19,7 +19,7 @@ def get_sample_data(image):
     img_byte_arr = img_byte_arr.getvalue()
     return img_byte_arr
 
-def test_predict_digit():
+def test_post_predict():
     digits = datasets.load_digits()
     X, y = digits.images, digits.target
 
