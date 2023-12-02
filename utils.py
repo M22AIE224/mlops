@@ -1,6 +1,10 @@
 from sklearn.model_selection import train_test_split
 from sklearn import svm, tree, datasets, metrics
+
+from sklearn.linear_model import LogisticRegression
 from joblib import dump, load
+from sklearn import preprocessing
+
 # we will put all utils here
 
 def get_combinations(param_name, param_values, base_combinations):    
@@ -28,7 +32,7 @@ def tune_hparams(X_train, y_train, X_dev, y_dev, h_params_combinations, model_ty
         if cur_accuracy > best_accuracy:
             best_accuracy = cur_accuracy
             best_hparams = h_params
-            best_model_path = "./models/{}_".format(model_type) +"_".join(["{}:{}".format(k,v) for k,v in h_params.items()]) + ".joblib"
+            best_model_path = "./models/m22aie224_ls_".format(model_type) + ".joblib" #+"_".join(["{}:{}".format(k,v) for k,v in h_params.items()]) + ".joblib"
             best_model = model
 
     # save the best_model    
@@ -45,11 +49,16 @@ def read_digits():
     y = digits.target
     return X, y 
 
+#Added logic to mormalize preprocessing
 def preprocess_data(data):
     # flatten the images
+    
     n_samples = len(data)
+    
     data = data.reshape((n_samples, -1))
-    return data
+    norm_data =  preprocessing.normalize(data)
+
+    return norm_data
 
 # Split data into 50% train and 50% test subsets
 def split_data(x, y, test_size, random_state=1):
