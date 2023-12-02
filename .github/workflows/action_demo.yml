@@ -22,7 +22,7 @@ jobs:
         run:  pip3 install --no-cache-dir -r requirements.txt
       - name: Run Pytest
         run: |
-          pytest -s api/test_api.py
+          pytest -s model_test.py
       #   name: Run Pytest
       # - run: pytest 
       # - name: Run experiment

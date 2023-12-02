@@ -45,7 +45,7 @@ classifier_param_dict['tree'] = h_params_trees_combinations
 #######################################################
 #Defining Linear Regression
 
-classifier_param_dict['LogisticRegression'] = h_params_trees_combinations
+#classifier_param_dict['LogisticRegression'] = h_params_trees_combinations
 
 ######################################################
 results = []
