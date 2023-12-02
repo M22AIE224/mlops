@@ -5,6 +5,7 @@ FROM prabhamlops23.azurecr.io/doc_dependecy:v1
 
 WORKDIR /digits
 #RUN ["cd","/digits"]
+#running 
 #CMD [ "pytest" ]
 #ENTRYPOINT [ "python3" ] 
 #ENV FLASK_APP=api/app
