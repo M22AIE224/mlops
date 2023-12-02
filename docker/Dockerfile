@@ -22,4 +22,3 @@ ENV FLASK_APP=api/app
 #ENTRYPOINT [ "./api/app" ] 
 CMD ["flask" , "run", "--host=0.0.0.0"]
 #CMD [ "python" , "m" , "flask" ,"run", "--host=0.0.0.0"]
-

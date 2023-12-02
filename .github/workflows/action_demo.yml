@@ -21,10 +21,10 @@ jobs:
       - name: Install dep
         run:  pip3 install --no-cache-dir -r requirements.txt
       - name: Run Pytest
-        run: pytest
-      - name: Run experiment
-<<<<<<< HEAD
-        run: python exp.py
-=======
-        run: python exp.py
->>>>>>> origin/feature/docker_assignment
+        run: |
+          pytest -s api/test_api.py
+      #   name: Run Pytest
+      # - run: pytest 
+      # - name: Run experiment
+      # - run: python exp.py
+      # - name: Run Flask test case 
