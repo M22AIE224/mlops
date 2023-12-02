@@ -29,7 +29,16 @@ def sum_num(x,y):
     sum = int(x) + int(y)
     return(str(sum)) 
 
+@app.route('/post', methods=['POST'])
+def post_route():
+    if request.method == 'POST':
 
+        data = request.get_json()
+
+        print('Data Received: "{data}"'.format(data=data))
+        return "Request Processed.\n"
+app.debug = True
+app.run()
 
 @app.route('/model' , methods = ['POST'])
 def pred_model():
@@ -41,8 +50,8 @@ def pred_model():
     #print(request.headers.get('Content-Type'))
     #print(request.headers.get('Accept'))
     x = request.json['x']
-    y = request.json['y']
-    z = int(x) + int(y) 
+    #y = request.json['y']
+    z = int(x) + int(x) 
     return {'sum':z}
 
 
