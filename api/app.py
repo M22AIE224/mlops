@@ -68,7 +68,7 @@ def predict_image():
     image1 = request.json['image1']
     #image2 = request.json['image2']
     print("done loading")
-    model_path = "./models/svm_gamma0.01_C1.joblib"
+    model_path = "./models/model_firstrun.joblib"
     model = load(model_path)
     predicted1 = model.predict([image1])
     #predicted2 = model.predict([image2])
