@@ -1,0 +1,17 @@
+# This docker file is to run the pytest 
+#FROM ubuntu:23.10
+FROM prabhamlops23.azurecr.io/doc_dependecy:v1
+#copy the whole code
+
+WORKDIR /digits
+#RUN ["cd","/digits"]
+#running 
+#CMD [ "pytest" ]
+#ENTRYPOINT [ "python3" ] 
+#ENV FLASK_APP=api/app
+#ENTRYPOINT [ "./api/app" ] 
+
+CMD ["pytest"]
+
+#CMD ["flask" , "run", "--host=0.0.0.0"]
+#CMD [ "python" , "m" , "flask" ,"run", "--host=0.0.0.0"]
