@@ -30,6 +30,7 @@ C_list = [0.1, 1, 10, 100, 1000]
 h_params={}
 h_params['gamma'] = gamma_list
 h_params['C'] = C_list
+#h_params['solver'] = ['sag'] # , 'lbfgs', 'liblinear']
 h_params_combinations = get_hyperparameter_combinations(h_params)
 classifier_param_dict['svm'] = h_params_combinations
 
@@ -37,10 +38,16 @@ classifier_param_dict['svm'] = h_params_combinations
 max_depth_list = [5, 10, 15, 20, 50, 100]
 h_params_tree = {}
 h_params_tree['max_depth'] = max_depth_list
+#h_params_tree['solver'] = ['sag']
 h_params_trees_combinations = get_hyperparameter_combinations(h_params_tree)
 classifier_param_dict['tree'] = h_params_trees_combinations
 
+#######################################################
+#Defining Linear Regression
 
+#classifier_param_dict['LogisticRegression'] = h_params_trees_combinations
+
+######################################################
 results = []
 test_sizes =  [0.2]
 dev_sizes  =  [0.2]
