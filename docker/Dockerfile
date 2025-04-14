@@ -1,10 +1,23 @@
 # This docker file is to run the pytest 
-#FROM ubuntu:23.10
-FROM python:3.9.17
-#copy the whole code
 
+# Use a Python base image
+FROM python:3.9.17
+
+# Copy all project files into /digits
 COPY . /digits/
+
+# Install Python dependencies
+RUN pip3 install -r /digits/requirements.txt
+
+# Set working directory
 WORKDIR /digits
+
+# Set Flask environment variable
+ENV FLASK_APP=api/app
+
+# Run the Flask app
+CMD ["flask", "run", "--host=0.0.0.0"]
+
 #RUN apt-get update
 #RUN apt-get install -y  python3 python3-pip
 RUN pip3 install -r /digits/requirements.txt
@@ -15,14 +28,8 @@ RUN pip3 install -r /digits/requirements.txt
 # copy all files from root 
 
 #RUN mkdir /digits/models
-#WORKDIR /digits
 #RUN ["cd","/digits"]
 #CMD [ "pytest" ]
 #ENTRYPOINT [ "python3" ] 
-
-#EXPOSE 8000
-#CMD ["sh","./entrypoint.sh"]
-ENV FLASK_APP=api/app
 #ENTRYPOINT [ "./api/app" ] 
-CMD ["flask" , "run", "--host=0.0.0.0"]
 #CMD [ "python" , "m" , "flask" ,"run", "--host=0.0.0.0"]
